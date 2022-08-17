@@ -24,7 +24,7 @@ input[type=submit] {
   background-color: #008B8B;
   color: white;
   padding: 12px 20px;
-  margin-right:300px;
+  margin-right:230px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -71,16 +71,15 @@ input[type=submit]:hover {
 </head>
 <body>
 
-<h2>Employee Form</h2>
-
-<div class="container">
+<div class="container" id="hide_add_form">
+  <h2>Employee Form</h2>
   <form method="POST" enctype="multipart/form-data">
     <div class="row">
       <div class="col-25">
         <label for="fname">First Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="fname" name="fname" placeholder="Enter First Name..." required>
+        <input type="text" id="user_name" name="fname" placeholder="Enter First Name..." required>
       </div>
     </div>
     <div class="row">
@@ -88,7 +87,7 @@ input[type=submit]:hover {
         <label for="lname">Last Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="lname" name="lastname" placeholder="Enter Last Name..." required>
+        <input type="text" id="user_email" name="lastname" placeholder="Enter Last Name..." required>
       </div>
     </div>
     <div class="row">
@@ -107,6 +106,9 @@ input[type=submit]:hover {
         <input type="file" id="image" name="image" required>
       </div>
     </div>
+    <?php 
+  // }
+   ?>
    
     <div class="row">
       <input type="submit" name="submit" value="Submit">

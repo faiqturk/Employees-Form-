@@ -4,23 +4,21 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
 <div class="container">
   <h2>All Employees</h2>           
-  <table class="table table-hover">
+  <table class="wp-list-table widefat fixed striped table-view-list posts">
     <thead>
       <tr>
-      <th>S.No</th>
+        <th>S.No</th>
         <th>Firstname</th>
         <th>Lastname</th>
         <th>Email</th>
         <th>Image</th>
-        <th>Delete<th>
+        <th>Actions<th>
       </tr>
     </thead>
     <tbody>
@@ -32,13 +30,17 @@
     ?>
     <tr>
         <td><?php echo $i++?></td>
-        <td><?php echo $row->fname?></td>
-        <td><?php echo $row->lname?></td>
-        <td><?php echo $row->email?></td>
-        <td><img src="<?php echo $row->img?>"></td>
+        <td id="get-<?php echo $id?>-1"><?php echo $row->fname?></td>
+        <td id="get-<?php echo $id?>-2"><?php echo $row->lname?></td>
+        <td id="get-<?php echo $id?>-3"><?php echo $row->email?></td>
+        <td id="get-<?php echo $id?>-4"><img src="<?php echo $row->img?>"></td>
         <form method="GET">
-          <td><button class="btn btn-danger" name ="dlt"><a href="http://localhost/wordpress/wp-admin/options-general.php?page=employee-form?id=<?php echo $id?>"> Delete</a></button></td>
-        </form>
+          <td>
+            <a href="http://localhost/wordpress/wp-admin/options-general.php?page=employee-form&dlt=<?php echo $id?>" style="text-decoration: none;color: #b32d2e;"> Delete </a>
+        </form>|
+          <a href="http://localhost/wordpress/wp-admin/options-general.php?page=employee-form&upd" id ="abc" style="text-decoration: none;"> Update</button>|
+          <a href="hgjhg" style="text-decoration: none;"> PDF</a>  
+          </td>
     </tr>
     <?php } ?>
     

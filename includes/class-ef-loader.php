@@ -20,7 +20,8 @@ if ( ! class_exists( 'EF_Loader' ) ) {
 		 */
 		public function __construct() { 
 			$this->includes();
-			add_action('init', array( $this, 'scratchcode_create_payment_table'));
+			add_action( 'admin_enqueue_scripts', array( $this, 'mmp_admin_enqueue_scripts' ) );
+			add_action('init', array( $this, 'create_table'));
 		}		
 
 		/**
@@ -31,9 +32,16 @@ if ( ! class_exists( 'EF_Loader' ) ) {
 		}
 
 		/**
+		 * Enqueue File For Admin.
+		 */
+		public function mmp_admin_enqueue_scripts() {
+			wp_enqueue_script( 'mmp_admin_script', plugin_dir_url( __DIR__ ) . 'asset/js/employee.js', array( 'jquery' ), wp_rand() );
+		}
+
+		/**
 		 * Function for make a table of employees.
 		 */
-		public function scratchcode_create_payment_table() {
+		public function create_table() {
  
 			global $wpdb;
 		 

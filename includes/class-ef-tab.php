@@ -22,8 +22,8 @@ if ( ! class_exists( 'EF_Tab' ) ) {
 			add_action("admin_menu", array( $this, "wpdocs_register_my_custom_menu_page"));
 			$this->save_employees_data();
 			$this->delete_employee_data();
+			$this->update_employee_data();
 		}
-		
 		/**
 		 * Create a tab in setting menu page.
 		 */
@@ -41,7 +41,7 @@ if ( ! class_exists( 'EF_Tab' ) ) {
 		 * Display a Form and Table of Employees
 		 */
 		public function my_custom_menu_page(){
-			global $wpdb;    
+			global $wpdb;
 			$employees = $wpdb->prefix . 'employee';
 			$result = $wpdb->get_results ( "SELECT * FROM $employees");
 			include_once dirname( __DIR__ ).'/templates/employee-form.php';
@@ -76,18 +76,41 @@ if ( ! class_exists( 'EF_Tab' ) ) {
 		public function delete_employee_data() { 
 			
 			global $wpdb;
-			$table_name = $wpdb->prefix . 'employee';
+			$employees = $wpdb->prefix . 'employee';
+			if(isset($_GET['dlt'])){
+				$dlt_id= $_GET['dlt'];
+				echo $dlt_id;
+				$wpdb->delete(
+					$employees, array(
+						'id' => $dlt_id
+					)
+				);
+			}
+		}
 
-			// if ( isset( $_GET['dlt'] ) ){ 
-				echo isset($_GET['id']);
-				// echo $_POST[''];  
-				// $wpdb->delete(
-				// 	$table_name, array(
-				// 		'id' => 1
-				// 	)
-				// );
+		public function update_employee_data() { 
+
+			// global $wpdb;
+			// $employees = $wpdb->prefix . 'employee';
+
+			// if ( isset( $_POST['submit'] ) ){   
+			// 	$fname = $_POST['fname'];
+			// 	$lastname = $_POST['lastname'];
+			// 	$email = $_POST['email'];
+			// 	$wpdb->insert(
+			// 		$employees, array(
+			// 			'fname' => $fname,
+			// 			'lname' => $lastname,
+			// 			'email' => $email,
+			// 			'img' => 'targetpath'
+			// 		),
+			// 		array(
+			// 			'id'=>$id
+			// 		)
+			// 	);
 			// }
 		}
+
 	}
 }
 
