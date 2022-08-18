@@ -14,10 +14,11 @@
     <thead>
       <tr>
         <th>S.No</th>
+        <th>Image</th>
         <th>Firstname</th>
         <th>Lastname</th>
         <th>Email</th>
-        <th>Image</th>
+        
         <th>Actions<th>
       </tr>
     </thead>
@@ -30,16 +31,19 @@
     ?>
     <tr>
         <td><?php echo $i++?></td>
+        <td id="get-<?php echo $id?>-4"><img src="<?php echo $row->img?>" style="width:40px;height:40px;border-radius:25px;;"></td>
         <td id="get-<?php echo $id?>-1"><?php echo $row->fname?></td>
         <td id="get-<?php echo $id?>-2"><?php echo $row->lname?></td>
         <td id="get-<?php echo $id?>-3"><?php echo $row->email?></td>
-        <td id="get-<?php echo $id?>-4"><img src="<?php echo $row->img?>"></td>
+       
         <form method="GET">
           <td>
             <a href="http://localhost/wordpress/wp-admin/options-general.php?page=employee-form&dlt=<?php echo $id?>" style="text-decoration: none;color: #b32d2e;"> Delete </a>
-        </form>|
-          <a href="http://localhost/wordpress/wp-admin/options-general.php?page=employee-form&upd" id ="abc" style="text-decoration: none;"> Update</button>|
-          <a href="hgjhg" style="text-decoration: none;"> PDF</a>  
+        </form>
+        <b>|</b>
+        <a id ="<?php echo $id?>" class="abc" style="text-decoration: none;cursor:pointer"> Update</button>
+        <b>|</b>
+        <a id ="<?php echo $id?>" class="pdf" style="text-decoration: none;cursor:pointer"> PDF</a>  
           </td>
     </tr>
     <?php } ?>

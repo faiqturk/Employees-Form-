@@ -71,6 +71,7 @@ input[type=submit]:hover {
 </head>
 <body>
 
+
 <div class="container" id="hide_add_form">
   <h2>Employee Form</h2>
   <form method="POST" enctype="multipart/form-data">
@@ -79,7 +80,7 @@ input[type=submit]:hover {
         <label for="fname">First Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="user_name" name="fname" placeholder="Enter First Name..." required>
+        <input type="text" id="first_name" name="fname" placeholder="Enter First Name..." required>
       </div>
     </div>
     <div class="row">
@@ -87,7 +88,7 @@ input[type=submit]:hover {
         <label for="lname">Last Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="user_email" name="lastname" placeholder="Enter Last Name..." required>
+        <input type="text" id="last_name" name="lastname" placeholder="Enter Last Name..." required>
       </div>
     </div>
     <div class="row">
@@ -103,7 +104,7 @@ input[type=submit]:hover {
         <label for="image">Image</label>
       </div>
       <div class="col-75">
-        <input type="file" id="image" name="image" required>
+        <input type="file" id="image" name="image">
       </div>
     </div>
     <?php 
@@ -115,6 +116,7 @@ input[type=submit]:hover {
     </div>
   </form>
 </div>
+
 
 
 
