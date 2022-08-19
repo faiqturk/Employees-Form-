@@ -38,7 +38,7 @@
        
         <form method="GET">
           <td>
-            <a href="http://localhost/wordpress/wp-admin/options-general.php?page=employee-form&dlt=<?php echo $id?>" style="text-decoration: none;color: #b32d2e;"> Delete </a>
+            <a href="<?php echo admin_url() .'options-general.php?page=employee-form&dlt=' . $id?>" style="text-decoration: none;color: #b32d2e;"> Delete </a>
         </form>
         <b>|</b>
         <a id ="<?php echo $id?>" class="abc" style="text-decoration: none;cursor:pointer"> Update</button>
